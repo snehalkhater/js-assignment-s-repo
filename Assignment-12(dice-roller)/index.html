@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body {
+            background-color: #ffcccc; /* light red background */
+            font-family: Arial, sans-serif;
+            padding-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #fff0f0; /* very light red */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3); /* red shadow */
+            text-align: center;
+            width: 300px;
+            border: 2px solid #ff4d4d; /* red border */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #cc0000; /* dark red heading */
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            display: none;
+        }
+
+        button {
+            background-color: #cc0000; /* dark red */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #990000; /* deeper red on hover */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dice Roller</h1>
+
+        <!-- All dice faces -->
+        <img id="dice1" src="./images/dice (1).png" alt="Dice 1">
+        <img id="dice2" src="./images/dice (2).png" alt="Dice 2">
+        <img id="dice3" src="./images/dice (3).png" alt="Dice 3">
+        <img id="dice4" src="./images/dice (4).png" alt="Dice 4">
+        <img id="dice5" src="./images/dice (5).png" alt="Dice 5">
+        <img id="dice6" src="./images/dice (6).png" alt="Dice 6">
+
+        <br>
+        <button onclick="roll()">Roll The Dice</button>
+    </div>
+
+    <script>
+        function roll() {
+            const randomNumber = Math.floor(Math.random() * 6) + 1;
+
+            // Hide all dice faces
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById(`dice${i}`).style.display = "none";
+            }
+
+            // Show random dice
+            document.getElementById(`dice${randomNumber}`).style.display = "inline";
+        }
+
+        // Show dice face 1 at start
+        document.getElementById("dice1").style.display = "inline";
+    </script>
+</body>
+
+</html>
