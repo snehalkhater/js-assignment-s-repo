@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital clock</title>
+    <title>Digital Clock</title>
 </head>
-<body>
-    <style>
-        
+<style>
+@font-face {
+    font-family: 'Digital Clock';
+    src: url('./digital-7.ttf') format('truetype');
+}
+body{
+    background-color: #e0f7fa;
+}
+
 .clock {
     margin: 250px auto 50px; 
     display: flex;
@@ -30,16 +36,49 @@
     text-align: center;
     width: 100%;
 }
-    </style>
-    <div class="clock"></div>
-    <h2>Digital clock</h2>
-    <div>HH</div>
-    <div>:</div>
-    <div>MM</div>
-    <div>:</div>
-    <div>SS</div>
-    <script>
 
-    </script>
+.clock-screen {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    font-family: 'Digital Clock', monospace;
+    font-weight: bold;
+    color: #2e3a59;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #d0d7e2;
+}
+</style>
+<body>
+    <div class="clock">
+        <h2>Digital Clock</h2>
+        <div class="clock-screen">
+        <div id="hh">HH</div>
+        <div>:</div>
+        <div id="mm">MM</div>
+        <div>:</div>
+        <div id="ss">SS</div>
+    </div>
+    </div>
+  <script>
+    function showCurrentTime(){
+        const hh = document.getElementById("hh");
+        const mm = document.getElementById("mm");
+        const ss = document.getElementById("ss");
+
+        const date = new Date();
+        hh.innerHTML = date.getHours();
+        mm.innerHTML = date.getMinutes();
+        ss.innerHTML = date.getSeconds();
+
+
+    }
+    setInterval(showCurrentTime,1000);
+
+
+ </script>  
 </body>
 </html>
