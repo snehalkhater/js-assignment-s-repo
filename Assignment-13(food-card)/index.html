@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Favorite Food Card</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #e0f7fa;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Food Card</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+        }
 
-    .text {
-      text-align: center;
-      padding: 20px;
-      color: #004d40;
-    }
+        .text {
+            text-align: center;
+            padding: 20px;
+            color: #004d40;
+        }
 
-    .foodlist {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px;
-      gap: 10px;
-    }
+        .foodlist {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            gap: 10px;
+        }
 
-    .foodlist-card {
-      background-color: #b2ebf2;
-      padding: 15px;
-      border: 1px solid #00796b;
-      border-radius: 8px;
-      min-width: 150px;
-      text-align: center;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        .foodlist-card {
+            background-color: #b2ebf2;
+            padding: 15px;
+            border: 1px solid #00796b;
+            border-radius: 8px;
+            min-width: 150px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-    .foodlist-card:hover {
-      transform: scale(1.05);
-      background-color: #80deea;
-    }
+        .foodlist-card:hover {
+            transform: scale(1.05);
+            background-color: #80deea;
+        }
 
-    .foodlist-card h2 {
-      margin: 0;
-      text-transform: capitalize;
-      font-size: 1.2em;
-      color: #006064;
-    }
-  </style>
+        .foodlist-card h2 {
+            margin: 0;
+            text-transform: capitalize;
+            font-size: 1.2em;
+            color: #006064;
+        }
+    </style>
 </head>
 
 <body>
-  <h1 class="text">🍽 My Favorite Food</h1>
-  <div class="foodlist" id="foodlist"></div>
+    <h1 class="text">🍽 My Favorite Food</h1>
+    <div class="foodlist" id="foodlist"></div>
 
-  <script>
-    function getRandomEmoji() {
-      const emojilist = ['🍕', '🍔', '🍟', '🌭', '🍿', '🥗', '🍣', '🍩', '🍪', '🍰'];
-      const randomIndex = Math.floor(Math.random() * emojilist.length);
-      return emojilist[randomIndex];
-    }
+    <script>
+        function getRandomEmoji() {
+            const emojilist = ['🍕', '🍔', '🍟', '🌭', '🍿', '🥗', '🍣', '🍩', '🍪', '🍰'];
+            const randomIndex = Math.floor(Math.random() * emojilist.length);
+            return emojilist[randomIndex];
+        }
 
-    const food = [
-      'idli-sambar',
-      'dosa',
-      'pav-bhaji',
-      'pani-puri',
-      'vada-pav',
-      'chole-bhature',
-      'pasta',
-      'pizza',
-      'burger',
-      'french-fries'
-    ];
+        const food = [
+            'idli-sambar',
+            'dosa',
+            'pav-bhaji',
+            'pani-puri',
+            'vada-pav',
+            'chole-bhature',
+            'pasta',
+            'pizza',
+            'burger',
+            'french-fries'
+        ];
 
-    const foodlist = document.getElementById('foodlist');
+        const foodlist = document.getElementById('foodlist');
 
-    for (let i = 0; i < food.length; i++) {
-      const emoji = getRandomEmoji();
-      const card = document.createElement('div');
-      card.className = 'foodlist-card';
-      card.innerHTML = `<h2>${food[i]} ${emoji}</h2>`;
-      foodlist.appendChild(card);
-    }
-  </script>
+        for (let i = 0; i < food.length; i++) {
+            const emoji = getRandomEmoji();
+            const card = document.createElement('div');
+            card.className = 'foodlist-card';
+            card.innerHTML = `<h2>${food[i]} ${emoji}</h2>`;
+            foodlist.appendChild(card);
+        }
+    </script>
 </body>
 
 </html>
