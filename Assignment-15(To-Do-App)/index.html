@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do App</title>
 </head>
 <style>
-  body{
+  body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #FFEDFA;
   }
+
+  h2 {
+    text-align: center;
+    color: #BE5985;
+    font-weight: 750;
+    font-size: 40px;
+  }
+
+  .input-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    background-color: #EC7FA9;
+    padding: 20px;
+    left: 0;
+    right: 0;
+  }
 </style>
+
 <body>
   <h2>My To Do List</h2>
+  <div class="container">
+    <div class="input-container">
+      <input type="text" placeholder="Add a new task" class="task-input">
+      <button class="add-button">Add List</button>
+    </div>
+  </div>
   <script>
 
   </script>
 </body>
+
 </html>
