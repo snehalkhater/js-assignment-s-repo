@@ -25,8 +25,7 @@
     margin: 20px auto;
     padding: 30px;
     max-width: 700px;
-    ;
-    height: 450px;
+    height: 350px;
     background-color: #EC7FA9;
     border-radius: 10px;
   }
@@ -44,6 +43,7 @@
   }
 
   .task-input {
+    background-color: #FFEDFA;
     padding: 10px 15px;
     width: 300px;
     border: 2px solid #BE5985;
@@ -74,7 +74,7 @@
   }
 
   .task-items {
-    background-color: white;
+    background-color: #FFEDFA;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -93,6 +93,25 @@
 
   .delete-icon:hover {
     filter: brightness(0.8);
+  }
+
+
+  @media screen and (max-width: 780px) {
+    .container {
+      width: 90%;
+      height: 400px;
+      padding: 10px;
+    }
+
+    .task-input {
+      width: 70%;
+      font-size: 14px;
+    }
+
+    .add-button {
+      padding: 10px 10px;
+      font-size: 14px;
+    }
   }
 </style>
 
@@ -155,11 +174,8 @@
         addToDo();
       }
     });
-
     loadCards();
   </script>
-
-
 </body>
 
 </html>
