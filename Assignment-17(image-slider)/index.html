@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>image slider</title>
+  <style>
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #533939;
+  font-family: Arial, sans-serif;
+}
+
+/* Main container for the slider */
+.container {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  background: #E5BEB5; /* background box */
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slider images */
+.slide {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: opacity 0.5s ease-in-out;
+}
+h2{
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #533939;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Hand icons (navigation) */
+.icon-hand {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.icon-hand:hover {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 1;
+}
+
+.icon-left {
+  left: 20px;
+}
+
+.icon-right {
+  right: 20px;
+}
+
+  
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>🖼️My Image Slider</h2>
+    <img src="./nature1.jpg" class="slide" alt="nature-img" id="slide" />
+    <img src="./lefthand.png"  class="icon-hand icon-left" alt="left-hand-img" onclick="prev()"/>
+    <img src="./righthand.png" class="icon-hand icon-right" alt="right-hand-img" onclick="next()"/>
+  </div>
+</body>
+<script>
+  const images = ['./nature1.jpg', './nature2.jpg', './nature3.jpg', './nature4.jpg','./nature5.jpg','./nature6.jpg',];
+  
+  let Index = 0;
+  const slide = document.getElementById('slide');
+
+  function next() {
+    if (Index < images.length -1) {
+      Index++;
+      slide.src = images[Index];
+    }
+    else{
+      Index = 0;
+          }
+                slide.src = images[Index];
+
+  
+}
+function prev() {
+    if (Index > 0) {
+      Index--;
+      slide.src = images[Index];
+    }
+    else{
+      Index = images.length - 1;
+     }
+      slide.src = images[Index];
+}
+setInterval(next, 2000);
+</script>
+
+</html>
