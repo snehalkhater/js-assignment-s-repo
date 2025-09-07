@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do-list</title>
+</head>
+<style>
+  h1{
+  color: #00A9FF;
+  text-align: center;
+  font-weight: 700;
+  font-size: 40px;
+}
+*{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+}
+.container{
+    max-width: 700px; ;
+    height: 450px;
+    overflow-y: auto;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #A0E9FF;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.task-items{
+    background-color: white;
+    color: #333;
+    padding: 15px 20px;
+    border-radius: 5px;
+     border-bottom: 2px solid #00A9FF;
+     border-left: 1px solid #00A9FF;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+}
+.delete-icon{
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+}
+.delete-icon:hover{
+    transform: scale(1.1);
+}
+.input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #CDF5FD;
+    padding: 20px;
+  
+   
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        height: 400px;
+        padding: 20px;
+    }
+    .task-input {
+        width: 70%;
+        font-size: 14px;
+    }
+    .add-button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+</style>
+<body>
+    <h1>TO DO LIST</h1>
+    <div class="container" id="todoContainer">
+
+    </div>
+    <div class="input-container">
+        <input type="text" placeholder="Add a new task" class="task-input" id="taskInput">
+        <button class="add-button" onclick="addToDo()">Add</button>
+    </div>
+
+    <script>
+
+        let todoItems =[];
+
+        const loadCards = ()=>{
+            todoItemsFromStorage = JSON.parse(localStorage.getItem("todoItems") || "[]");
+            todoItems=todoItemsFromStorage;
+            const todoContainer = document.getElementById("todoContainer");
+            todoContainer.innerHTML="";
+            for(const todoItem of todoItems){
+                    todoContainer.innerHTML +=`
+                <div class="task-items">
+                    ${todoItem}
+                    <img src="delete.png" alt="" class="delete-icon" onclick="deleteToDo('${todoItem}')">
+                    </div>
+                `
+            }
+        };
+         loadCards();
+         const addToDo = ()=>{
+           const taskInput = document.getElementById("taskInput");
+           const newTodo= taskInput.value;
+          if(newTodo.trim()!=""){
+            todoItems.push(newTodo);
+            taskInput.value="";
+            localStorage.setItem("todoItems",JSON.stringify(todoItems));
+            loadCards();
+           }
+
+         };
+
+          const deleteToDo = (task)=>{
+            const index = todoItems.indexOf(task);
+            if(index>-1){
+                todoItems.splice(index,1);
+            localStorage.setItem("todoItems",JSON.stringify(todoItems));
+            loadCards();
+            }
+            
+          };
+     
+    </script>
+</body>
+
+</html>
